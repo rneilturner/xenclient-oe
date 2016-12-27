@@ -11,6 +11,7 @@ PR = "${INC_PR}.1"
 
 FILES_${PN} += "/usr/lib/xen/boot/hvmloader"
 
+EXTRA_OEMAKE += "CFLAGS='' LDFLAGS='' CC='${BUILD_CC}' LD='${BUILD_LD}'"
 EXTRA_OEMAKE += "DESTDIR=${D}"
 EXTRA_OEMAKE += "CROSS_SYS_ROOT=${STAGING_DIR_HOST} CROSS_COMPILE=${HOST_PREFIX}"
 EXTRA_OEMAKE += "SEABIOS_ROM=${STAGING_DIR_HOST}/usr/share/firmware/bios.bin"
@@ -21,6 +22,8 @@ EXTRA_OEMAKE += "CONFIG_IOEMU=n"
 # Why is that last one necessary?
 
 TARGET_CC_ARCH += "${LDFLAGS}"
+
+INSANE_SKIP_${PN} = "arch"
 
 inherit pythonnative
 

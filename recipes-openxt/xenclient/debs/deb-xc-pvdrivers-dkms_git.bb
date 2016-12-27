@@ -14,7 +14,7 @@ SRC_URI = "git://${OPENXT_GIT_MIRROR}/pv-linux-drivers.git;protocol=${OPENXT_GIT
 S="${WORKDIR}/git"
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_EXTRA_PKGS = "lintian"
 

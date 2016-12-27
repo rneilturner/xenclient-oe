@@ -16,7 +16,7 @@ SRC_URI = "git://${OPENXT_GIT_MIRROR}/xblanker.git;protocol=${OPENXT_GIT_PROTOCO
 S="${WORKDIR}/git"
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 DEB_CREATE_SRC="1"
 
 DEB_NAME = "xblanker"

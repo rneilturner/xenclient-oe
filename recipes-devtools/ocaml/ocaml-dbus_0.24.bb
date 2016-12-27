@@ -33,7 +33,7 @@ do_compile() {
 	oe_runmake \
 		OCAMLC="ocamlc -cc '${CC} -fPIC'" \
 		OCAMLOPT="ocamlopt -cc '${CC} -fPIC'" \
-		OCAMLMKLIB="ocamlmklib -elfmode -L'${STAGING_DIR_TARGET}/lib' -L'${STAGING_DIR_TARGET}/usr/lib'"
+		OCAMLMKLIB="ocamlmklib -elfmode -L'${STAGING_DIR_TARGET}' -L'${STAGING_DIR_TARGET}/usr'"
 
 }
 

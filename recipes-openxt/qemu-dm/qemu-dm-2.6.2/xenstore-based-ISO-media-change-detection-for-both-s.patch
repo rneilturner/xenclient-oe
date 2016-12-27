@@ -245,7 +245,7 @@ Index: qemu-2.6.2/xen-changeiso.c
 +#endif
 +    char *newFile = NULL;
 +    struct IsoNode *node = opaque;
-+    size_t len;
++    unsigned int len;
 +    char path[XEN_BUFSIZE];
 +    Error *err = NULL;
 +

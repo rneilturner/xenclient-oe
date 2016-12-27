@@ -30,7 +30,7 @@ FILES_${PN} = " /usr/bin/db-cmd /usr/bin/db-ls /usr/bin/db-read /usr/bin/db-writ
 FILES_${PN} += " /usr/bin/db-ls-dom0 /usr/bin/db-read-dom0 /usr/bin/db-write-dom0 /usr/bin/db-nodes-dom0 /usr/bin/db-exists-dom0 /usr/bin/db-rm-dom0 /usr/bin/db-cat-dom0 "
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_NAME = "xenclient-dbtools"
 DEB_DESC="Tools to access the XenClient database from a service VM"

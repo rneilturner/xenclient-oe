@@ -741,7 +741,7 @@ Index: qemu-2.6.2/hw/xen/xen_acpi_pm.c
 +        break;
 +    }
 +    default:
-+        XBM_ERROR_MSG("unknown cmd: %llu", val);
++        XBM_ERROR_MSG("unknown cmd: %"PRIu64, val);
 +        break;
 +    }
 +
@@ -880,7 +880,7 @@ Index: qemu-2.6.2/hw/xen/xen_acpi_pm.c
 +{
 +    struct xen_battery_manager *xbm = opaque;
 +
-+    XBM_DPRINTF("opaque(%p) addr(0x%x) val(%llu) size(%u)\n",
++    XBM_DPRINTF("opaque(%p) addr(0x%x) val(%"PRIu64") size(%u)\n",
 +                opaque, (uint32_t)addr, val, size);
 +
 +    if ((val > 0) && (val <= MAX_BATTERIES)) {

@@ -19,7 +19,7 @@ SRC_URI = "git://${OPENXT_GIT_MIRROR}/v4v.git;protocol=${OPENXT_GIT_PROTOCOL};br
 S="${WORKDIR}/git/libv4v"
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_NAME = "libv4v-1.0-0"
 DEB_DESC="v4v library"

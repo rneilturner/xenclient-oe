@@ -25,18 +25,17 @@ S = "${WORKDIR}/git"
 RDEPENDS_${PN}-dev = ""
 
 do_configure() {
-#	linux32 ./configure -no-curses -prefix ${STAGING_DIR} \
-#		-bindir ${STAGING_BINDIR} -libdir ${STAGING_LIBDIR} \
-#	        -no-tk -cc "$CC -m32" -as "$AS --32" -aspp "$CC -m32 -c"
+	./configure -no-curses \
+		-bindir ${bindir} -libdir ${libdir}/ocaml -mandir ${datadir}/man \
+	        -no-tk -cc "$CC -m64" -as "$AS --64" -aspp "$CC -m64 -c"
 #	Ugly fix to cross-compile. I think we need to use cross-compil patch
 #	for ocaml
-	CFLAGS="${BUILD_CFLAGS} -m32" \
-		linux32 ./configure -no-curses \
-	        	-bindir ${bindir} \
-			-libdir ${libdir}/ocaml \
-			-mandir ${datadir}/man \
-            -cc "${TARGET_PREFIX}gcc -m32 --sysroot=${STAGING_DIR_TARGET}" -mksharedlib "${TARGET_PREFIX}ld -shared" \
-			-no-tk -as "${TARGET_PREFIX}as --32" -aspp "${TARGET_PREFIX}gcc -m32 -c"
+#	./configure -no-curses \
+#       		-bindir ${bindir} \
+#		-libdir ${libdir}/ocaml \
+#		-mandir ${datadir}/man \
+#            -cc "${TARGET_PREFIX}gcc -m64 --sysroot=${STAGING_DIR_TARGET}" -mksharedlib "${TARGET_PREFIX}ld -shared" \
+#		-no-tk -host x86_64  
 
 	sed -i'' -re 's/-lX11//' config/Makefile
 	sed -i'' -re 's/OTHERLIBRARIES=.*/OTHERLIBRARIES=unix str num dynlink bigarray systhreads threads/' config/Makefile

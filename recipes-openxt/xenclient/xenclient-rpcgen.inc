@@ -1,7 +1,7 @@
 DESCRIPTION = "rpc stubs generation mechanism"
 LICENSE = "GPLv2"
 LIC_FILES_CHKSUM="file://../COPYING;md5=4641e94ec96f98fabc56ff9cc48be14b"
-DEPENDS = "dbus ghc-native ghc-dbus-core libxslt-native"
+DEPENDS = "dbus ghc-native ghc-dbus libxslt-native ghc-haxml"
 
 PV = "0+git${SRCPV}"
 

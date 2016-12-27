@@ -3,7 +3,7 @@ DEPENDS  = "ghc-native"
 RDEPENDS_${PN} = "ghc-runtime"
 #RDEPENDS_${PN}_class-native = "ghc-native"
 
-GHC_VERSION = "6.12.1"
+GHC_VERSION = "7.10.1"
 GHC_CACHE_FILE = "${STAGING_LIBDIR_NATIVE}/ghc-${GHC_VERSION}/package.conf.d/package.cache"
 GHC_CACHE_FILE_BACKUP = "${STAGING_DIR}/package.cache.backup"
 PSTAGE_FORCEDEPS += "${PN}"
@@ -16,7 +16,7 @@ RUNSETUP  = "${RUNGHC} ${SETUPFILE}"
 SETUPFILE = "$([ -f Setup.lhs ] && echo Setup.lhs || echo Setup.hs)"
 
 LOCAL_GHC_PACKAGE_DATABASE = "${S}/local-packages.db"
-export GHC_PACKAGE_PATH = "${LOCAL_GHC_PACKAGE_DATABASE}:"
+# export GHC_PACKAGE_PATH = "${LOCAL_GHC_PACKAGE_DATABASE}:"
 
 # ghc libs have (and always had) broken rpath disable sanity checking for now
 INSANE_SKIP_${PN} = "rpaths"
@@ -154,7 +154,7 @@ do_devshell[postfuncs] += "ghc_pkg_cleanup_devshell"
 do_configure() {
         ${RUNSETUP} clean
 
-        #CC="${CCACHE}${BUILD_PREFIX}gcc" \
+        # CC="${CCACHE}${BUILD_PREFIX}gcc" \
         # Below was BUILD_CFLAGS but we should let OE set the proper value by using CFLAGS
         # Also changed CPP from `which cpp` as that can also be decided by OE
         # The previous instance of this in devshell was also changed
