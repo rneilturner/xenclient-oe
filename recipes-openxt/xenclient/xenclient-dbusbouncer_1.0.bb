@@ -21,7 +21,7 @@ inherit update-rc.d xenclient
 inherit ${@"xenclient-simple-deb"if(d.getVar("MACHINE",1)=="xenclient-nilfvm")else("null")}
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_NAME = "xenclient-dbusbouncer"
 DEB_DESC="V4V - UNIX socket proxy"

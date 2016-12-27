@@ -2129,19 +2129,23 @@ PATCHES
 + * indent-tabs-mode: nil
 + * End:
 + */
---- a/xen/include/Makefile
-+++ b/xen/include/Makefile
-@@ -92,7 +92,7 @@ all: headers.chk headers++.chk
+Index: xen-4.6.1/xen/include/Makefile
+===================================================================
+--- xen-4.6.1.orig/xen/include/Makefile
++++ xen-4.6.1/xen/include/Makefile
+@@ -90,7 +90,7 @@ ifeq ($(XEN_TARGET_ARCH),$(XEN_COMPILE_ARCH))
  
- PUBLIC_HEADERS := $(filter-out public/arch-% public/dom0_ops.h, $(wildcard public/*.h public/*/*.h) $(public-y))
+ all: headers.chk headers++.chk
  
--PUBLIC_ANSI_HEADERS := $(filter-out public/%ctl.h public/xsm/% public/%hvm/save.h, $(PUBLIC_HEADERS))
-+PUBLIC_ANSI_HEADERS := $(filter-out public/%ctl.h public/xsm/% public/%hvm/save.h public/v4v.h, $(PUBLIC_HEADERS))
+-PUBLIC_HEADERS := $(filter-out public/arch-% public/dom0_ops.h, $(wildcard public/*.h public/*/*.h) $(public-y))
++PUBLIC_HEADERS := $(filter-out public/arch-% public/dom0_ops.h public/v4v.h, $(wildcard public/*.h public/*/*.h) $(public-y))
  
- headers.chk: $(PUBLIC_ANSI_HEADERS) Makefile
- 	for i in $(filter %.h,$^); do \
---- a/xen/include/asm-x86/guest_access.h
-+++ b/xen/include/asm-x86/guest_access.h
+ PUBLIC_ANSI_HEADERS := $(filter-out public/%ctl.h public/xsm/% public/%hvm/save.h, $(PUBLIC_HEADERS))
+
+Index: xen-4.6.1/xen/include/asm-x86/guest_access.h
+===================================================================
+--- xen-4.6.1.orig/xen/include/asm-x86/guest_access.h
++++ xen-4.6.1/xen/include/asm-x86/guest_access.h
 @@ -48,7 +48,7 @@
  /* Cast a guest handle (either XEN_GUEST_HANDLE or XEN_GUEST_HANDLE_PARAM)
   * to the specified type of XEN_GUEST_HANDLE_PARAM. */

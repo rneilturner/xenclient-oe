@@ -10,6 +10,8 @@ SRC_URI = "http://archive.debian.org/debian/pool/main/libx/libx86/${PN}_${PV}-1.
 
 S = "${WORKDIR}/libx86-${PV}"
 
+CFLAGS += "-fPIC"
+
 do_configure() {
     sed -i 's/^CFLAGS =/CFLAGSnot =/' Makefile
 }

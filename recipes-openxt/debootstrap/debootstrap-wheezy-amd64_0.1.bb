@@ -1,5 +1,5 @@
 DEBOOTSTRAP_SUITE="wheezy"
-DEBOOTSTRAP_ARCH="i386"
+DEBOOTSTRAP_ARCH="amd64"
 DEBOOTSTRAP_PKGS="git"
 
 include recipes-openxt/debootstrap/debootstrap.inc

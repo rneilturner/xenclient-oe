@@ -11,15 +11,15 @@ SECTION = "devel"
 LICENSE = "GHCL"
 LIC_FILES_CHKSUM = "file://LICENSE;md5=7cb08deb79c4385547f57d6bb2864e0f"
 
-FILESEXTRAPATHS_prepend := "${THISDIR}/ghc-${PV}:"
+FILESEXTRAPATHS_prepend := "${THISDIR}/ghc-${PN}:"
 
 SRC_URI = " \
-	http://www.haskell.org/ghc/dist/6.12.1/ghc-6.12.1-src.tar.bz2 \
+    http://www.haskell.org/ghc/dist/6.12.1/ghc-6.12.1-src.tar.bz2 \
 	file://bfd-error.patch \
 	file://ghc6-fix-linking-with-newer-binutils.patch \
 	file://fix-linker.patch \
 	file://fix-compile-with-gcc-4.9.patch \
-	"
+    "
 
 SRC_URI[md5sum] = "3a2b23f29013605f721ebdfc29de9c92"
 SRC_URI[sha256sum] = "cdf99f9add677a925ee87a5b87e94eb595ed9b72034453c195ef9379bd26552a"

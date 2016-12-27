@@ -69,7 +69,7 @@ EXTRA_OEMAKE += "DESTDIR=${D}"
 TARGET_CC_ARCH += "${LDFLAGS}"
 
 do_configure() {
-	DESTDIR=${D} ./configure --prefix=${prefix}
+	DESTDIR=${D} ./configure --prefix=${prefix} --host=x86_64
 }
 
 do_compile() {

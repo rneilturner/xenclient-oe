@@ -6,7 +6,7 @@ LICENSE = "GPLv2"
 LIC_FILES_CHKSUM = "file://v4v.h;beginline=6;endline=32;md5=8054a75b345d2cd08e16f9dd0ad9283b"
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_NAME = "v4v-module"
 DEB_DESC="The XenClient v4v kernel module"

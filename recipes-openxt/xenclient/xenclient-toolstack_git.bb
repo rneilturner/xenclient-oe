@@ -27,7 +27,7 @@ FILES_${PN}-libs = "${ocamllibdir}/*"
 
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_NAME = "nilfvm-xenclient-toolstack"
 DEB_DESC="The nilfvm XenClient toolstack package"
@@ -51,6 +51,7 @@ SRC_URI = "git://${OPENXT_GIT_MIRROR}/toolstack.git;protocol=${OPENXT_GIT_PROTOC
 PACKAGE_ARCH = "${MACHINE_ARCH}"
 S = "${WORKDIR}/git"
 
+CFLAGS += "-fPIC"
 
 do_compile() {
         make V=1 XEN_DIST_ROOT="${STAGING_DIR}"

@@ -64,7 +64,7 @@ PACKAGES += "${PN}-extra-keymaps ${PN}-extra-roms ${PN}-utils"
 
 EXTRA_OECONF += " \
     --enable-xen \
-    --target-list=i386-softmmu \
+    --target-list=x86_64-softmmu \
     --without-system-pixman \
     --disable-sdl \
     --disable-vnc \
@@ -89,10 +89,39 @@ EXTRA_OECONF += " \
 "
 
 do_configure(){
-    ${S}/configure --prefix=${prefix} --sysconfdir=${sysconfdir} ${EXTRA_OECONF}
+    ${S}/configure ${EXTRA_OECONF} --enable-xen \
+                --host=x86_64 \
+                --target-list=x86_64-softmmu \
+                --prefix=${prefix} \
+                --sysconfdir=${sysconfdir} \
+                --extra-cflags="-I${STAGING_INCDIR}" \
+                --extra-ldflags="-L${STAGING_LIBDIR}" \
+                --without-system-pixman \
+                --disable-sdl \
+                --disable-vnc \
+                --disable-pie \
+                --disable-docs \
+                --disable-strip \
+                --disable-virtfs \
+                --disable-bluez \
+                --disable-guest-agent \
+                --disable-curses \
+                --disable-slirp \
+                --disable-curl \
+                --disable-kvm \
+                --disable-tools \
+                --disable-guest-base \
+                --enable-werror \
+                --enable-surfman \
+                --enable-atapi-pt \
+                --enable-atapi-pt-v4v \
+                --enable-readonly-ide \
+                --enable-debug
 }
 
-EXTRA_OEMAKE += "AUTOCONF_HOST='--host=`arch`' DESTDIR=${D} STRIP=''"
+do_compile(){
+    DESTDIR=${D} oe_runmake AUTOCONF_HOST='--host=x86_64' 
+}
 
 CFLAGS_append = " -Wno-unused-parameter -Wno-unused-local-typedefs --param ssp-buffer-size=4 -ftrapv -D_FORTIFY_SOURCE=2"
 

@@ -14,7 +14,7 @@ SRC_URI = "git://${OPENXT_GIT_MIRROR}/xctools.git;protocol=${OPENXT_GIT_PROTOCOL
 S="${WORKDIR}/git/xenmou"
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_EXTRA_PKGS = "lintian"
 

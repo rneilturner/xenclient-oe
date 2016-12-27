@@ -18,7 +18,7 @@ S = "${WORKDIR}/git/linux"
 inherit ${@"xenclient-simple-deb"if(d.getVar("MACHINE",1)=="xenclient-nilfvm")else("null")}
 
 DEB_SUITE = "wheezy"
-DEB_ARCH = "i386"
+DEB_ARCH = "amd64"
 
 DEB_NAME = "xenfb2-kernel-module"
 DEB_DESC="Linux Framebuffer PV driver"
