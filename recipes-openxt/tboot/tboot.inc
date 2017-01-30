@@ -8,7 +8,7 @@ EXTRA_OEMAKE += "TARGET_ARCH=x86_64 CROSS_COMPILE=${TARGET_PREFIX} INSTALL_STRIP
 
 do_compile() {
 	oe_runmake SUBDIRS="tboot" CC="${HOST_PREFIX}gcc ${TOOLCHAIN_OPTIONS}" CPP="${HOST_PREFIX}cpp ${TOOLCHAIN_OPTIONS}" LDFLAGS="" CFLAGS=""
-	oe_runmake SUBDIRS="lcptools tb_polgen utils" CFLAGS+="-std=c99" TARGET_ARCH="x86_32"
+	oe_runmake SUBDIRS="lcptools tb_polgen utils" CFLAGS+="-std=c99" TARGET_ARCH="x86_64"
 }
 
 do_install() {

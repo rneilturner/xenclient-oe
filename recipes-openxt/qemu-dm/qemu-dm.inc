@@ -90,7 +90,6 @@ EXTRA_OECONF += " \
 
 do_configure(){
     ${S}/configure ${EXTRA_OECONF} --enable-xen \
-                --host=x86_64 \
                 --target-list=x86_64-softmmu \
                 --prefix=${prefix} \
                 --sysconfdir=${sysconfdir} \
@@ -110,7 +109,6 @@ do_configure(){
                 --disable-curl \
                 --disable-kvm \
                 --disable-tools \
-                --disable-guest-base \
                 --enable-werror \
                 --enable-surfman \
                 --enable-atapi-pt \
