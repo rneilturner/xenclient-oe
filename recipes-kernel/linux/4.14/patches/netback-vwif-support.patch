@@ -1,0 +1,12 @@
+Index: 4.14.5/drivers/net/xen-netback/xenbus.c
+===================================================================
+--- 4.14.5.orig/drivers/net/xen-netback/xenbus.c
++++ 4.14.5/drivers/net/xen-netback/xenbus.c
+@@ -1194,6 +1194,7 @@ static int read_xenbus_vif_flags(struct 
+ 
+ static const struct xenbus_device_id netback_ids[] = {
+ 	{ "vif" },
++	{ "vwif" },
+ 	{ "" }
+ };
+ 
