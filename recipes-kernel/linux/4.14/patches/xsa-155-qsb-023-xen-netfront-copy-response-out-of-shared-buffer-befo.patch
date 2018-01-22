@@ -18,11 +18,11 @@ use issue.
 ################################################################################
 PATCHES 
 ################################################################################
-Index: 4.14.5/drivers/net/xen-netfront.c
+Index: linux-4.14.22/drivers/net/xen-netfront.c
 ===================================================================
---- 4.14.5.orig/drivers/net/xen-netfront.c
-+++ 4.14.5/drivers/net/xen-netfront.c
-@@ -382,13 +382,13 @@ static void xennet_tx_buf_gc(struct netf
+--- linux-4.14.22.orig/drivers/net/xen-netfront.c
++++ linux-4.14.22/drivers/net/xen-netfront.c
+@@ -384,13 +384,13 @@ static void xennet_tx_buf_gc(struct netf
  		rmb(); /* Ensure we see responses up to 'rp'. */
  
  		for (cons = queue->tx.rsp_cons; cons != prod; cons++) {
@@ -40,7 +40,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  			BUG_ON(id >= NET_TX_RING_SIZE);
  			skb = queue->tx_skbs[id].skb;
  			if (unlikely(gnttab_query_foreign_access(
-@@ -737,7 +737,7 @@ static int xennet_get_extras(struct netf
+@@ -739,7 +739,7 @@ static int xennet_get_extras(struct netf
  			     RING_IDX rp)
  
  {
@@ -49,7 +49,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  	struct device *dev = &queue->info->netdev->dev;
  	RING_IDX cons = queue->rx.rsp_cons;
  	int err = 0;
-@@ -753,24 +753,23 @@ static int xennet_get_extras(struct netf
+@@ -755,24 +755,23 @@ static int xennet_get_extras(struct netf
  			break;
  		}
  
@@ -81,7 +81,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  
  	queue->rx.rsp_cons = cons;
  	return err;
-@@ -780,28 +779,28 @@ static int xennet_get_responses(struct n
+@@ -782,28 +781,28 @@ static int xennet_get_responses(struct n
  				struct netfront_rx_info *rinfo, RING_IDX rp,
  				struct sk_buff_head *list)
  {
@@ -117,7 +117,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  			xennet_move_rx_slot(queue, skb, ref);
  			err = -EINVAL;
  			goto next;
-@@ -815,7 +814,7 @@ static int xennet_get_responses(struct n
+@@ -817,7 +816,7 @@ static int xennet_get_responses(struct n
  		if (ref == GRANT_INVALID_REF) {
  			if (net_ratelimit())
  				dev_warn(dev, "Bad rx response id %d.\n",
@@ -126,7 +126,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  			err = -EINVAL;
  			goto next;
  		}
-@@ -828,7 +827,7 @@ static int xennet_get_responses(struct n
+@@ -830,7 +829,7 @@ static int xennet_get_responses(struct n
  		__skb_queue_tail(list, skb);
  
  next:
@@ -135,7 +135,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  			break;
  
  		if (cons + slots == rp) {
-@@ -838,7 +837,7 @@ next:
+@@ -840,7 +839,7 @@ next:
  			break;
  		}
  
@@ -144,7 +144,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  		skb = xennet_get_rx_skb(queue, cons + slots);
  		ref = xennet_get_rx_ref(queue, cons + slots);
  		slots++;
-@@ -894,9 +893,9 @@ static RING_IDX xennet_fill_frags(struct
+@@ -896,9 +895,9 @@ static RING_IDX xennet_fill_frags(struct
  	struct sk_buff *nskb;
  
  	while ((nskb = __skb_dequeue(list))) {
@@ -156,7 +156,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  
  		if (shinfo->nr_frags == MAX_SKB_FRAGS) {
  			unsigned int pull_to = NETFRONT_SKB_CB(skb)->pull_to;
-@@ -907,7 +906,7 @@ static RING_IDX xennet_fill_frags(struct
+@@ -909,7 +908,7 @@ static RING_IDX xennet_fill_frags(struct
  		BUG_ON(shinfo->nr_frags >= MAX_SKB_FRAGS);
  
  		skb_add_rx_frag(skb, shinfo->nr_frags, skb_frag_page(nfrag),
@@ -165,7 +165,7 @@ Index: 4.14.5/drivers/net/xen-netfront.c
  
  		skb_shinfo(nskb)->nr_frags = 0;
  		kfree_skb(nskb);
-@@ -1003,7 +1002,7 @@ static int xennet_poll(struct napi_struc
+@@ -1005,7 +1004,7 @@ static int xennet_poll(struct napi_struc
  	i = queue->rx.rsp_cons;
  	work_done = 0;
  	while ((i != rp) && (work_done < budget)) {

@@ -163,10 +163,10 @@ PATCHES
  drivers/xen/xen-pciback/pci_stub.c | 338 ++++++++++++++++++++++++++++++++++---
  1 file changed, 312 insertions(+), 26 deletions(-)
 
-Index: 4.14.5/drivers/xen/xen-pciback/pci_stub.c
+Index: linux-4.14.22/drivers/xen/xen-pciback/pci_stub.c
 ===================================================================
---- 4.14.5.orig/drivers/xen/xen-pciback/pci_stub.c
-+++ 4.14.5/drivers/xen/xen-pciback/pci_stub.c
+--- linux-4.14.22.orig/drivers/xen/xen-pciback/pci_stub.c
++++ linux-4.14.22/drivers/xen/xen-pciback/pci_stub.c
 @@ -102,10 +102,9 @@ static void pcistub_device_release(struc
  
  	xen_unregister_device_domain_owner(dev);
@@ -463,7 +463,7 @@ Index: 4.14.5/drivers/xen/xen-pciback/pci_stub.c
  struct pci_dev *pcistub_get_pci_dev(struct xen_pcibk_device *pdev,
  				    struct pci_dev *dev)
  {
-@@ -279,11 +540,13 @@ void pcistub_put_pci_dev(struct pci_dev 
+@@ -279,11 +540,13 @@ void pcistub_put_pci_dev(struct pci_dev
  	* pcistub and xen_pcibk when AER is in processing
  	*/
  	down_write(&pcistub_sem);
@@ -481,7 +481,7 @@ Index: 4.14.5/drivers/xen/xen-pciback/pci_stub.c
  
  	dev_data = pci_get_drvdata(dev);
  	ret = pci_load_saved_state(dev, dev_data->pci_saved_state);
-@@ -1456,6 +1719,41 @@ static ssize_t restrictive_store(struct 
+@@ -1456,6 +1719,41 @@ static ssize_t restrictive_store(struct
  }
  static DRIVER_ATTR_WO(restrictive);
  

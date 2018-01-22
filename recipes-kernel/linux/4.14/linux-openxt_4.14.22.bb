@@ -37,6 +37,7 @@ SRC_URI += "${KERNELORG_MIRROR}/linux/kernel/v${PV_MAJOR}.x/linux-${PV}.tar.xz;n
     file://thorough-reset-interface-to-pciback-s-sysfs.patch;patch=1 \
     file://tpm-tis-force-ioremap.patch;patch=1 \
     file://netback-vwif-support.patch;patch=1 \
+    file://gem-foreign.patch;patch=1 \
     file://xen-txt-add-xen-txt-eventlog-module.patch;patch=1 \
     file://xsa-155-qsb-023-add-RING_COPY_RESPONSE.patch;patch=1 \
     file://xsa-155-qsb-023-xen-blkfront-make-local-copy-of-response-before-usin.patch;patch=1 \
@@ -47,6 +48,6 @@ SRC_URI += "${KERNELORG_MIRROR}/linux/kernel/v${PV_MAJOR}.x/linux-${PV}.tar.xz;n
     file://defconfig \
     "
 
-SRC_URI[kernel.md5sum] = "b4622cf571527304eddc45ed4073d720"
-SRC_URI[kernel.sha256sum] = "d589a3bc033499d53d4ff2caae83ee6fd2b9c794c8c7632ae42b656d202975da"
+SRC_URI[kernel.md5sum] = "0c033c0420ae28017c2f15e02d0cf90c"
+SRC_URI[kernel.sha256sum] = "4ce2fa81854971c2f50462e14e790885ab13376870c41dd5208ccd7619617fbe"
 LIC_FILES_CHKSUM = "file://COPYING;md5=d7810fab7487fb0aad327b76f1be7cd7"

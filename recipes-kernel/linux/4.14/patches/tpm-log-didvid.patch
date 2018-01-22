@@ -34,10 +34,10 @@ None.
 ################################################################################
 PATCHES 
 ################################################################################
-Index: 4.14.5/drivers/char/tpm/tpm_tis_core.c
+Index: linux-4.14.22/drivers/char/tpm/tpm_tis_core.c
 ===================================================================
---- 4.14.5.orig/drivers/char/tpm/tpm_tis_core.c
-+++ 4.14.5/drivers/char/tpm/tpm_tis_core.c
+--- linux-4.14.22.orig/drivers/char/tpm/tpm_tis_core.c
++++ linux-4.14.22/drivers/char/tpm/tpm_tis_core.c
 @@ -729,9 +729,9 @@ int tpm_tis_core_init(struct device *dev
  	if (rc < 0)
  		goto out_err;
